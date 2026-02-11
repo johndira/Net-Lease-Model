@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { DollarSign, TrendingUp, Calculator, Download, Building2, Info, HelpCircle } from 'lucide-react';
+const { useState, useEffect } = React;
+const { DollarSign, TrendingUp, Calculator, Download, Building2, Info, HelpCircle } = lucideReact;
 
 const NetLeasePropertyModel = () => {
   // Input state
