@@ -46,28 +46,6 @@ const NetLeasePropertyModel = () => {
     return `${value.toFixed(2)}%`;
   };
 
-  // Tooltip component
-  const Tooltip = ({ id, title, description }) => (
-    <div className="relative inline-block ml-2">
-      <button
-        onMouseEnter={() => setTooltipVisible(id)}
-        onMouseLeave={() => setTooltipVisible(null)}
-        className="text-blue-500 hover:text-blue-700"
-      >
-        <Info className="w-4 h-4" />
-      </button>
-      {tooltipVisible === id && (
-        <div className="absolute z-10 w-72 p-3 bg-gray-900 text-white text-sm rounded-lg shadow-lg bottom-full left-1/2 transform -translate-x-1/2 mb-2">
-          <div className="font-semibold mb-1">{title}</div>
-          <div className="text-gray-300">{description}</div>
-          <div className="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
-            <div className="border-8 border-transparent border-t-gray-900"></div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-
   // Modal component for metric descriptions
   const MetricModal = ({ isOpen, onClose, title, description, calculation, liveFormula }) => {
     if (!isOpen) return null;
