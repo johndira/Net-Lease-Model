@@ -1111,5 +1111,5 @@ Result: Unlevered IRR = ${formatPercent(results.unleveredIRR)}`}
   );
 };
 
-export default NetLeasePropertyModel;
 window.NetLeasePropertyModel = NetLeasePropertyModel;
+
