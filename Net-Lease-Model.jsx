@@ -446,7 +446,7 @@ export default propertyModel;
               <Info className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5" />
+               <span>📈</span>
               <span className="text-sm font-medium opacity-90">Year 1 Cash-on-Cash</span>
             </div>
             <div className="text-3xl font-bold">{formatPercent(results.cashOnCashReturn)}</div>
