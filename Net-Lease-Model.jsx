@@ -1,5 +1,4 @@
 const { useState, useEffect } = React;
-const { DollarSign, TrendingUp, Calculator, Download, Building2, Info, HelpCircle } = window. lucideReact;
 
 const NetLeasePropertyModel = () => {
   // Input state
@@ -462,7 +461,7 @@ export default propertyModel;
               <Info className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 mb-2">
-              <Calculator className="w-5 h-5" />
+              <span>🧮</span>
               <span className="text-sm font-medium opacity-90">Levered IRR</span>
             </div>
             <div className="text-3xl font-bold">{formatPercent(results.leveredIRR)}</div>
@@ -477,7 +476,7 @@ export default propertyModel;
               <Info className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 mb-2">
-              <DollarSign className="w-5 h-5" />
+              <span>💲</span>
               <span className="text-sm font-medium opacity-90">Equity Multiple</span>
             </div>
             <div className="text-3xl font-bold">{results.equityMultiple.toFixed(2)}x</div>
@@ -491,7 +490,7 @@ export default propertyModel;
               <Info className="w-5 h-5" />
             </button>
             <div className="flex items-center gap-2 mb-2">
-              <TrendingUp className="w-5 h-5" />
+              <span>📈</span>
               <span className="text-sm font-medium opacity-90">Unlevered IRR</span>
             </div>
             <div className="text-3xl font-bold">{formatPercent(results.unleveredIRR)}</div>
