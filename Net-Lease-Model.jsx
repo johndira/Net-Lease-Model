@@ -420,7 +420,7 @@ export default propertyModel;
         <div className="bg-white rounded-xl shadow-lg p-6 mb-6">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <Building2 className="w-10 h-10 text-blue-600" />
+              <span className="text-4xl">🏢</span>
               <div>
                 <h1 className="text-3xl font-bold text-gray-800">Net Lease Property Model</h1>
                 <p className="text-gray-600">Triple Net Lease Investment Analysis</p>
@@ -430,7 +430,7 @@ export default propertyModel;
               onClick={downloadModel}
               className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
             >
-              <Download className="w-4 h-4" />
+              <span>⬇️</span>
               Download Code
             </button>
           </div>
@@ -443,7 +443,7 @@ export default propertyModel;
             onClick={() => setActiveModal('coc')}
           >
             <button className="absolute top-4 right-4 opacity-75 hover:opacity-100">
-              <Info className="w-5 h-5" />
+              <span>ℹ️</span>
             </button>
             <div className="flex items-center gap-2 mb-2">
                <span>📈</span>
@@ -458,7 +458,7 @@ export default propertyModel;
             onClick={() => setActiveModal('irr')}
           >
             <button className="absolute top-4 right-4 opacity-75 hover:opacity-100">
-              <Info className="w-5 h-5" />
+              <span>ℹ️</span>
             </button>
             <div className="flex items-center gap-2 mb-2">
               <span>🧮</span>
