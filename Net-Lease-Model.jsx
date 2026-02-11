@@ -1,5 +1,5 @@
 const { useState, useEffect } = React;
-const { DollarSign, TrendingUp, Calculator, Download, Building2, Info, HelpCircle } = lucideReact;
+const { DollarSign, TrendingUp, Calculator, Download, Building2, Info, HelpCircle } = window. lucideReact;
 
 const NetLeasePropertyModel = () => {
   // Input state
