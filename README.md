@@ -1,6 +1,0 @@
-- descriptions for investment return summary metrics i.e. eqt reversion, TCF,TR, TP, Un/Levered IRR
-- average cash on cash in addition to year 1
-- explain irr (everyone has a different way of calculating)
-- all cash purchase switch (dropdown with loan terms pops up if financing is necessary)
-- refinance option after a certain amount of years if interest rates drop
-- 
