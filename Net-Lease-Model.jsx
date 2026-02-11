@@ -473,7 +473,7 @@ export default propertyModel;
             onClick={() => setActiveModal('multiple')}
           >
             <button className="absolute top-4 right-4 opacity-75 hover:opacity-100">
-              <Info className="w-5 h-5" />
+              <span>ℹ️</span>
             </button>
             <div className="flex items-center gap-2 mb-2">
               <span>💲</span>
@@ -487,7 +487,7 @@ export default propertyModel;
             onClick={() => setActiveModal('unlevered-irr')}
           >
             <button className="absolute top-4 right-4 opacity-75 hover:opacity-100">
-              <Info className="w-5 h-5" />
+              <span>ℹ️</span>
             </button>
             <div className="flex items-center gap-2 mb-2">
               <span>📈</span>
