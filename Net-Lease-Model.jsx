@@ -160,7 +160,7 @@ const calculateDeal = (inputs) => {
 
 // ─── Input Panel ────────────────────────────────────────────────────────────
 
-const InputPanel = ({ label, color, inputs, onChange, onSelectChange }) => {
+const InputPanel = ({ label, color, name, tagline, onNameChange, onTaglineChange, inputs, onChange, onSelectChange }) => {
   const formatNumberWithCommas = (v) => v.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
   const border = color === 'blue' ? 'border-blue-500' : 'border-emerald-500';
@@ -175,8 +175,21 @@ const InputPanel = ({ label, color, inputs, onChange, onSelectChange }) => {
 
   return (
     <div className={`bg-white rounded-xl shadow-lg border-t-4 ${border} overflow-hidden`}>
-      <div className={`px-4 py-3 ${badge} flex items-center gap-2`}>
-        <span className="text-lg font-bold">{label}</span>
+      <div className={`px-4 py-3 ${badge}`}>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => onNameChange(e.target.value)}
+          placeholder={label}
+          className="bg-transparent text-lg font-bold w-full outline-none placeholder-white placeholder-opacity-60 border-b border-white border-opacity-30 focus:border-opacity-80 pb-0.5"
+        />
+        <input
+          type="text"
+          value={tagline}
+          onChange={(e) => onTaglineChange(e.target.value)}
+          placeholder="Add a property name or note..."
+          className="bg-transparent text-xs w-full outline-none placeholder-white placeholder-opacity-50 mt-1 opacity-80 focus:opacity-100"
+        />
       </div>
 
       <div className="p-4 space-y-5">
@@ -386,6 +399,11 @@ const NetLeasePropertyModel = () => {
   const [inputsA, setInputsA] = useState({ ...DEFAULT_INPUTS });
   const [inputsB, setInputsB] = useState({ ...DEFAULT_INPUTS, purchasePrice: 3000000, capRate: 6.5 });
 
+  const [nameA, setNameA] = useState('Deal A');
+  const [nameB, setNameB] = useState('Deal B');
+  const [taglineA, setTaglineA] = useState('');
+  const [taglineB, setTaglineB] = useState('');
+
   const [resultsA, setResultsA] = useState(null);
   const [resultsB, setResultsB] = useState(null);
 
@@ -430,6 +448,10 @@ const NetLeasePropertyModel = () => {
           <InputPanel
             label="Deal A"
             color="blue"
+            name={nameA}
+            tagline={taglineA}
+            onNameChange={setNameA}
+            onTaglineChange={setTaglineA}
             inputs={inputsA}
             onChange={makeHandler(setInputsA)}
             onSelectChange={makeSelectHandler(setInputsA)}
@@ -437,6 +459,10 @@ const NetLeasePropertyModel = () => {
           <InputPanel
             label="Deal B"
             color="emerald"
+            name={nameB}
+            tagline={taglineB}
+            onNameChange={setNameB}
+            onTaglineChange={setTaglineB}
             inputs={inputsB}
             onChange={makeHandler(setInputsB)}
             onSelectChange={makeSelectHandler(setInputsB)}
@@ -461,12 +487,12 @@ const NetLeasePropertyModel = () => {
                 </div>
                 <div className="grid grid-cols-2 gap-2 mt-2">
                   <div className={`rounded-lg p-2 text-center ${aWins ? 'bg-white bg-opacity-30 ring-2 ring-white ring-opacity-60' : 'bg-white bg-opacity-10'}`}>
-                    <div className="text-xs opacity-75 mb-0.5">Deal A</div>
+                    <div className="text-xs opacity-75 mb-0.5">{nameA}</div>
                     <div className="text-lg font-bold">{a}</div>
                     {aWins && <div className="text-xs mt-0.5">★ Better</div>}
                   </div>
                   <div className={`rounded-lg p-2 text-center ${!aWins ? 'bg-white bg-opacity-30 ring-2 ring-white ring-opacity-60' : 'bg-white bg-opacity-10'}`}>
-                    <div className="text-xs opacity-75 mb-0.5">Deal B</div>
+                    <div className="text-xs opacity-75 mb-0.5">{nameB}</div>
                     <div className="text-lg font-bold">{b}</div>
                     {!aWins && <div className="text-xs mt-0.5">★ Better</div>}
                   </div>
@@ -483,8 +509,8 @@ const NetLeasePropertyModel = () => {
             <thead>
               <tr className="border-b-2 border-gray-200">
                 <th className="py-2 px-3 text-left text-sm font-semibold text-gray-600">Metric</th>
-                <th className="py-2 px-3 text-right text-sm font-semibold text-blue-600">Deal A</th>
-                <th className="py-2 px-3 text-right text-sm font-semibold text-emerald-600">Deal B</th>
+                <th className="py-2 px-3 text-right text-sm font-semibold text-blue-600">{nameA}</th>
+                <th className="py-2 px-3 text-right text-sm font-semibold text-emerald-600">{nameB}</th>
               </tr>
             </thead>
             <tbody>
@@ -530,10 +556,10 @@ const NetLeasePropertyModel = () => {
         {/* Side-by-side annual projections */}
         <div className="grid grid-cols-2 gap-4 mb-5">
           {[
-            { label: 'Deal A', results: resultsA, color: 'blue' },
-            { label: 'Deal B', results: resultsB, color: 'emerald' },
+            { label: nameA, results: resultsA, color: 'blue' },
+            { label: nameB, results: resultsB, color: 'emerald' },
           ].map(({ label, results, color }) => (
-            <div key={label} className="bg-white rounded-xl shadow-lg p-5">
+            <div key={color} className="bg-white rounded-xl shadow-lg p-5">
               <h2 className="text-base font-bold text-gray-800 mb-3">
                 <span className={`inline-block px-2 py-0.5 rounded text-white text-xs mr-2 ${color === 'blue' ? 'bg-blue-600' : 'bg-emerald-600'}`}>{label}</span>
                 Annual Cash Flow Projections
